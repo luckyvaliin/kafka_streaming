@@ -25,7 +25,7 @@ def main():
             .load("path/to/xml")
 
         # Perform any required processing on the XML data
-        processed_data = xml_data.select("id", "name", "details.age", "details.city")
+        processed_data = xml_data.select("id", "name", "details.county", "details.city")
 
         query = processed_data \
             .selectExpr("CAST(id AS STRING) AS key", "to_json(struct(*)) AS value") \

@@ -24,11 +24,12 @@ try:
 
     # Perform your data processing/transformation here if needed
     # For example, you can add a new column, filter data, aggregate, etc.
-    processed_data = raw_data.select("id", "name").filter("details.age > 18")
+    processed_data = raw_data.select("id", "name").filter("details.county = 'Forsyth'")
 
     # Write the processed data to the S3 processed zone
     processed_data.write \
-        .mode("overwrite") \
+        .partitionBy("dob") \
+        .mode("append") \
         .parquet(processed_data_location)
 
 except Exception as e:
