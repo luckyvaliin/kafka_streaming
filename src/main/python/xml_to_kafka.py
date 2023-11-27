@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import explode
-from kafka_params import kafka_topic, kafka_bootstrap_servers
-from xml_schema import xml_schema
+from config.kafka_params import kafka_topic, kafka_bootstrap_servers
+from config.xml_schema import xml_schema
 
 def main():
     # Initialize Spark session
