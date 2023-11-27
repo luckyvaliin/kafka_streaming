@@ -34,7 +34,6 @@ def main():
             .option("kafka.bootstrap.servers", kafka_bootstrap_servers) \
             .option("topic", kafka_topic) \
             .outputMode("append") \
-            .option("checkpointLocation", "path/to/checkpoint") \
             .start()
 
         query.awaitTermination()
